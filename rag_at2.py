@@ -13,7 +13,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
 
-# Misc. imports for reading files
+# Misc. imports 
 from docx import Document as DocxDocument
 import fitz  # PyMuPDF
 
@@ -67,7 +67,7 @@ def build_vectorstore(docs):
     return FAISS.from_documents(docs, embeddings)
 
 # ===================== Local LLM Query via Ollama =====================
-def query_ollama(prompt, model="llama2-uncensored"):
+def query_ollama(prompt, model="mistral"):
     response = requests.post(
         "http://localhost:11434/api/generate",
         json={
